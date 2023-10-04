@@ -2,6 +2,7 @@ import React from "react";
 import "./Hero.css";
 import { HiLocationMarker } from "react-icons/hi";
 import CountUp from "react-countup";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
@@ -11,17 +12,36 @@ const Hero = () => {
         <div className="flexColStart hero-left">
           <div className="hero-title">
             <div className="orange-circle" />
-            <h1>
+            <motion.h1
+              initial={{ y: "2rem", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 3,
+                type: "tween",
+              }}
+            >
               Discover <br />
               Most Suitable <br />
               Property
-            </h1>
+            </motion.h1>
           </div>
 
-          <div className="flexColStart hero-des">
-            <span className="secondaryText">Find a variety of properties that suit you very easilty</span>
-            <span className="secondaryText">Forget all difficulties in finding a residence for you</span>
-          </div>
+          <motion.div
+            className="flexColStart hero-des"
+            initial={{ y: "2rem", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              duration: 2,
+              type: "tween",
+            }}
+          >
+            <span className="secondaryText">
+              Find a variety of properties that suit you very easilty
+            </span>
+            <span className="secondaryText">
+              Forget all difficulties in finding a residence for you
+            </span>
+          </motion.div>
 
           <div className="flexCenter search-bar">
             <HiLocationMarker color="var(--blue)" size={25} />
@@ -59,11 +79,19 @@ const Hero = () => {
           </div>
         </div>
         {/* RIGHT SECTION */}
-        <div className="flexCenter hero-right">
+        <motion.div
+          className="flexCenter hero-right"
+          initial={{ x: "7rem", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: 4,
+            type: "tween",
+          }}
+        >
           <div className="image-container">
             <img src="./hero-image.png" alt="" />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

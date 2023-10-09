@@ -11,7 +11,7 @@ export const createResidency = asyncHandler(async (req, res) => {
     city,
     facilities,
     image,
-   userEmail,
+    userEmail,
   } = req.body.data;
   console.log(req.body.data);
   try {
@@ -30,7 +30,7 @@ export const createResidency = asyncHandler(async (req, res) => {
         },
       },
     });
-    res.send({message: "Residency created successfully", residency})
+    res.send({ message: "Residency created successfully", residency });
   } catch (err) {
     if (err.code === "P2002") {
       throw new Error("A residency with address already there");
@@ -41,13 +41,24 @@ export const createResidency = asyncHandler(async (req, res) => {
 
 //function to get all the documents
 
-export const getAllResidencies = asyncHandler(async(req, res)=>{
+export const getAllResidencies = asyncHandler(async (req, res) => {
   const residencies = await prisma.residency.findMany({
     orderBy: {
-      createdAt: "desc"
-    }
-  })
-  res.send(residencies)
-})
+      createdAt: "desc",
+    },
+  });
+  res.send(residencies);
+});
 
 //function to get a specific document/residency
+export const getResidency = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  try {
+    const residency = await prisma.residency.findUnique({
+      where: { id },
+    });
+    res.send(residency);
+  } catch (err) {
+    throw new Error(err.message);
+  }
+});

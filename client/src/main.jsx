@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         domain="dev-xzxfi4al6uw3cry0.us.auth0.com"
         clientId="RyNCdUKx1sdBxOgEQySW0nWJNcHh7zhE"
         authorizationParams={{
-          redirect_uri: "http://localhost:5173",
+          redirect_uri: "https://avalon-acres.vercel.app/",
         }}
         audience="http://localhost:8000"
         scope="openid profile email"

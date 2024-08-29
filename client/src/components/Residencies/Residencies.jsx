@@ -41,7 +41,7 @@ const Residencies = () => {
         </div>
         <Swiper {...sliderSettings}>
           <SliderButtons />
-          {data.slice(8, 15).map((card, i) => (
+          {data.slice(1, 15).map((card, i) => (
             <SwiperSlide key={i}>
               <PropertCard card={card} />
             </SwiperSlide>
